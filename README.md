@@ -14,15 +14,9 @@ have it echo the user's input. Additionally, allow the user to shut down the REP
 - [ ] Add a special "quit" command so that users can exit the REPL.
 
 2. Now let's add the ability for our REPL to perform arithmetic calculations. In the Lisp language, arithmetic expressions 
-follow [reverse Polish notation](https://en.wikipedia.org/wiki/Polish_notation). For example, to add `3` and `2`, the expression
-would be `(+ 3 2)`. In other words, the operator comes first, followed by the operands, all surrounded by parentheses. This notation
-might seem weird, but it has some benefits, namely that it's easier for to parse. It's also nice because we're not limited to
-only two operands; we could have an expression like `(* 3 8 4 7 0)` to calculate the product all of the operands. 
+follow [reverse Polish notation](https://en.wikipedia.org/wiki/Polish_notation). For example, to add `3` and `2`, the expression would be `(+ 3 2)`. In other words, the operator comes first, followed by the operands, all surrounded by parentheses. This notationmight seem weird, but it has some benefits, namely that it's easier for to parse. It's also nice because we're not limited toonly two operands; we could have an expression like `(* 3 8 4 7 0)` to calculate the product all of the operands. 
 
-We'll proceed by first implementing the ability to "tokenize" an arithmetic expression, which means to split the inputs up into
-individual tokens, where each token is part of the Lisp syntax. For example, the expression `(+ 3 2)` would be tokenzied into 
-individual characters that we might store in a vector: `['+', '3', '2']`. Tokenizing is an important step when it comes to 
-parsing some syntax. 
+We'll proceed by first implementing the ability to "tokenize" an arithmetic expression, which means to split the inputs up into individual tokens, where each token is part of the Lisp syntax. For example, the expression `(+ 3 2)` would be tokenized into individual characters that we might store in a vector: `['(', '+', '3', '2', ')']`. Tokenizing is an important step when it comes to parsing some syntax. 
 
 Once the tokenization logic is in place, we'll implement the ability to parse the input. The output of the parsing phase will
 be an expression that out interpreter actually understands and can evaluate. 
